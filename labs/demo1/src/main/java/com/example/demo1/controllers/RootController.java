@@ -1,13 +1,12 @@
-package com.example.demo1;
+package com.example.demo1.controllers;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
-@SpringBootApplication
-public class Demo1Application {
-
-	public static void main(String[] args) {
-		SpringApplication.run(Demo1Application.class, args);
+@Controller
+public class RootController {
+	@GetMapping("/")
+	public String home() {
+		return "home";
 	}
-
 }
