@@ -8,10 +8,18 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Controller
 @Slf4j
-public class CourseController {
+public class CourseController implements WebMvcConfigurer {
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		WebMvcConfigurer.super.addViewControllers(registry);
+		registry.addViewController("/success").setViewName("success");
+	}
+
 	private static final String COURSE_FORM2 = "form2";
 
 	@GetMapping("/course")
@@ -31,9 +39,9 @@ public class CourseController {
 		if (result.hasErrors()) {
 			return "courseForm";
 		} else {
-			return "home";
+			return "redirect:/success";
 		}
-//        log.info("get course={}", f);
+//        log.info("get course={}", f); //
 //        return "courseForm"; // but need to refactor later
 	}
 }
