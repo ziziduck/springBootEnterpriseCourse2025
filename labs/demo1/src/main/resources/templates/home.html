@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Hello Spring Boot</h1>
+<h2 style="background-color: yellow;" th:text="${message}"></h2>
+<h2 style="background-color: green;">方法2:[[${message}]]</h2>
+<h2 style="background-color: blue;"
+    th:text="'短期目標:'+${message2}+'!!'"></h2>
+<h2 style="background-color: red;">短期目標[[${message2}]]!!</h2>
+<p>正常的使用</p>
+<img src="/images/demo1.jpg"/>
+<p>更複雜(SSR)的使用</p>
+<img th:src="@{/images/demo1.jpg}"/>
+</body>
+</html>

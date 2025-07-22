@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>緊急聯絡人</title>
+</head>
+<body>
+<h1 th:text="${mainCourseName}"></h1>
+<h1>如果有任何情形請聯絡...</h1>
+<h2>顯示完整物件</h2>
+<p th:text="${jcourse}"></p>
+<h4 th:text="${jcourse.id}"></h4>
+<h4 th:text="${jcourse.name}"></h4>
+<h4 th:text="${jcourse.duration}"></h4>
+<h4 th:text="${jcourse.fee}"></h4>
+<!--<h4 th:text="${jcourse.instructor}"></h4>-->
+<hr/>
+<p th:text="${jjcourse}"></p>
+<hr/>
+</body>
+</html>
