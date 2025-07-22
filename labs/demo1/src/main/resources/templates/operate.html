@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -14,6 +15,14 @@
         <p th:text="${n}"></p>
     </div>
     <hr/>
+    <div th:each="c,iter:*{conditions}">
+        <!--        <p th:text="${iter.index}"></p>-->
+        <!--        <p th:text="${iter.count}"></p>-->
+        <label th:text="*{names[__${iter.index}__]}"></label>
+        <input type="checkbox" th:field="*{conditions[__${iter.index}__]}"
+               th:checked="${c}"/>
+
+    </div>
 </form>
 </body>
 </html>
