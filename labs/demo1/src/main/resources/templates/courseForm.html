@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>課程表單</h1>
+<form th:action="@{/course}" method="post" th:object="${courseForm}">
+    <table>
+        <tr>
+            <td><label for="courseId">course id</label></td>
+            <td><input id="courseId" type="text" th:field="*{courseId}"/></td>
+            <td th:errors="*{courseId}"></td>
+        </tr>
+        <tr>
+            <td><label for="courseName">course name</label></td>
+            <td><input id="courseName" type="text" th:field="*{courseName}"/></td>
+            <td th:errors="*{courseName}"></td>
+        </tr>
+        <tr>
+            <td><label for="duration">course duration</label></td>
+            <td><input id="duration" type="number" th:field="*{duration}"/></td>
+            <td th:errors="*{duration}"></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+
+
+    </table>
+</form>
+<p th:text="'從Model傳來的form:'+${form2}"></p>
+</body>
+</html>
