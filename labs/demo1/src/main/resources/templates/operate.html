@@ -1,0 +1,19 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>核取方塊會在此</h1>
+<form th:object="${form1}">
+    <div th:each="c:*{conditions}">
+        <p th:text="${c}"></p>
+    </div>
+    <div th:each="n:*{names}">
+        <p th:text="${n}"></p>
+    </div>
+    <hr/>
+</form>
+</body>
+</html>
