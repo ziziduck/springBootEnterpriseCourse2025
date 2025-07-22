@@ -10,22 +10,20 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Slf4j
-@Order(2)
-public class ExplainDIRunner2 implements CommandLineRunner {
-//    public ExplainDIRunner2(Calculator cal1) {
-//        this.cal1 = cal1;
-//    }
+@Order(5)
+public class ExplainDIRunner5 implements CommandLineRunner {
+    public ExplainDIRunner5(@Qualifier("add") Calculator cal1,
+                            @Qualifier("sub") Calculator cal2) {
+        this.cal1 = cal1;
+        this.cal2 = cal2;
+    }
 
-    @Autowired
-    @Qualifier("add")
     private Calculator cal1;
-    @Autowired
-    @Qualifier("sub")
     private Calculator cal2;
 
     @Override
     public void run(String... args) throws Exception {
-        log.info("cal1 3,4={}", cal1.calc(3, 4));
-        log.info("cal2 5,6={}", cal2.calc(5, 6));
+        log.info("cal1 7,8={}", cal1.calc(7, 8));
+        log.info("cal2 9,10={}", cal2.calc(9, 10));
     }
 }
