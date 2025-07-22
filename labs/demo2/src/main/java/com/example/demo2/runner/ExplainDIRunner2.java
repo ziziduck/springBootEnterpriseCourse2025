@@ -7,7 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 @Slf4j
 @Order(2)
 public class ExplainDIRunner2 implements CommandLineRunner {
