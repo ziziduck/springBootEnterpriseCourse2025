@@ -1,11 +1,14 @@
 package com.example.demo1.controllers;
 
 import com.example.demo1.form.CourseForm;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
+@Slf4j
 public class CourseController {
 	private static final String COURSE_FORM2 = "form2";
 
@@ -18,5 +21,11 @@ public class CourseController {
 				"BDPY", "Python and Big Data", 42
 		));
 		return "courseForm";
+	}
+
+	@PostMapping("/course")
+	public String handleFormSubmit(CourseForm f) {
+		log.info("get course={}", f);
+		return "courseForm"; // but need to refactor later
 	}
 }

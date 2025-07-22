@@ -7,12 +7,15 @@
 </head>
 <body>
 <h1>課程表單</h1>
-<p th:text="'從CourseForm參數傳來的form:'+${courseForm}"></p>
+<form th:action="@{/course}" method="post" th:object="${courseForm}">
+    <label for="courseId">course id</label>
+    <input id="courseId" type="text" th:field="*{courseId}"/><br/>
+    <label for="courseName">course name</label>
+    <input id="courseName" type="text" th:field="*{courseName}"/><br/>
+    <label for="duration">course duration</label>
+    <input id="duration" type="number" th:field="*{duration}"/><br/>
+    <button type="submit">Submit</button>
+</form>
 <p th:text="'從Model傳來的form:'+${form2}"></p>
-<ul>
-    <li th:text="${courseForm.courseId}"></li>
-    <li th:text="${courseForm.courseName}"></li>
-    <li th:text="${courseForm.duration}"></li>
-</ul>
 </body>
 </html>
