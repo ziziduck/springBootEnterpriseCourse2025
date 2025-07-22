@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class GreetController {
 	@Autowired
 	private GreetingService service;
+
 	@RequestMapping("/greeting")
 	public @ResponseBody String greeting() {
-		return service.greet();
+		return service.greet().toUpperCase();
 	}
 }
