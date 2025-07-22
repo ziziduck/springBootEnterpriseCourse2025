@@ -3,6 +3,7 @@ package com.example.demo2.runner;
 import com.example.demo2.race.Racing;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -12,7 +13,11 @@ import org.springframework.stereotype.Component;
 @Order(4)
 public class ExplainDIRunner4 implements CommandLineRunner {
     @Autowired
+    @Qualifier("bicycle")
     private Racing r1;
+    @Autowired
+    @Qualifier("bike")
+    private Racing r2;
 
     @Override
     public void run(String... args) throws Exception {
@@ -21,6 +26,7 @@ public class ExplainDIRunner4 implements CommandLineRunner {
         log.info("r1 status={}", r1.status());
         log.warn("r1 status={}", r1.status());
         log.error("r1 status={}", r1.status());
+        log.info("bike status={}", r2.status());
 
     }
 }
