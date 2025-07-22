@@ -8,13 +8,30 @@
 <body>
 <h1>課程表單</h1>
 <form th:action="@{/course}" method="post" th:object="${courseForm}">
-    <label for="courseId">course id</label>
-    <input id="courseId" type="text" th:field="*{courseId}"/><br/>
-    <label for="courseName">course name</label>
-    <input id="courseName" type="text" th:field="*{courseName}"/><br/>
-    <label for="duration">course duration</label>
-    <input id="duration" type="number" th:field="*{duration}"/><br/>
-    <button type="submit">Submit</button>
+    <table>
+        <tr>
+            <td><label for="courseId">course id</label></td>
+            <td><input id="courseId" type="text" th:field="*{courseId}"/></td>
+            <td th:errors="*{courseId}"></td>
+        </tr>
+        <tr>
+            <td><label for="courseName">course name</label></td>
+            <td><input id="courseName" type="text" th:field="*{courseName}"/></td>
+            <td th:errors="*{courseName}"></td>
+        </tr>
+        <tr>
+            <td><label for="duration">course duration</label></td>
+            <td><input id="duration" type="number" th:field="*{duration}"/></td>
+            <td th:errors="*{duration}"></td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+
+
+    </table>
 </form>
 <p th:text="'從Model傳來的form:'+${form2}"></p>
 </body>
