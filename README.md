@@ -1,1 +1,8 @@
 # springBootEnterpriseCourse2025
+
+初始專案URL
+demo1
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.5.3&packaging=jar&jvmVersion=17&groupId=com.example&artifactId=demo1&name=demo1&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo1&dependencies=devtools,lombok,web,thymeleaf,validation,actuator 
+demo2
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.5.3&packaging=jar&jvmVersion=17&groupId=com.example&artifactId=demo2&name=demo2&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo2&dependencies=web,thymeleaf,lombok,actuator,devtools
+
