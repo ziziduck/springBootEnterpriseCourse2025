@@ -17,11 +17,22 @@ public class BeverageCRUDRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        log.info("repository={}",repository);
+        initDB();
+    }
+
+    private void initDB() {
         Beverage b1 = new Beverage();
         b1.setTitle("Tall ice coffee");
         b1.setDetail("Americano");
         b1.setPrice(120);
         b1.setSugar(0.0f);
+        Beverage b2 = new Beverage();
+        b2.setTitle("Hot grande latte");
+        b2.setDetail("3 shot espresso+70% hot milk+...");
+        b2.setPrice(200);
+        b2.setSugar(0.0f);
         repository.save(b1);
+        repository.save(b2);
     }
 }
