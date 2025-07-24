@@ -17,6 +17,8 @@
     <th>detail</th>
     <th>price</th>
     <th>sugar</th>
+    <th>Delete</th>
+    <th>Modify</th>
   </tr>
   <tr th:each="b:${beverages}">
     <td th:text="${b.id}"></td>
@@ -24,6 +26,8 @@
     <td th:text="${b.detail}"></td>
     <td th:text="${b.price}"></td>
     <td th:text="${b.sugar}"></td>
+    <td><a th:href="@{/beverages/delete(id=${b.id})}">DELETE</a></td>
+    <td><a th:href="@{/beverages/modify(id=${b.id})}">Modify</a></td>
   </tr>
 </table>
 </body>

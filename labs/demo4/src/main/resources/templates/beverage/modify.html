@@ -11,7 +11,8 @@
   新增飲料
 </h1>
 <p th:text="${beverageForm}"></p>
-<form th:object="${beverageForm}" method="post" th:action="@{/beverages/add}">
+<form th:object="${beverageForm}" method="post" th:action="@{/beverages/modify}">
+  <input type="hidden" th:field="*{id}"/>
   <label>title</label><input type="text" th:field="*{title}"/><br/>
 
   <label>detail</label><input type="text" th:field="*{detail}"/><br/>
