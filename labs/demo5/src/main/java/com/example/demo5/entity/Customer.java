@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Customer {
     @Id
     @GeneratedValue
-    private Integer id;
+    private Long id;
     @Column(nullable = false)
     private String firstName;
     @Column(nullable = false)
