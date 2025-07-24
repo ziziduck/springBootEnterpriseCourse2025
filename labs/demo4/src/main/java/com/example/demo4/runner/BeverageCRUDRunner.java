@@ -25,8 +25,8 @@ public class BeverageCRUDRunner implements CommandLineRunner {
         dumpDB("after insert some data");
         modifyDB();
         dumpDB("after modify 3rd beverage");
-        deleteDB();
-        dumpDB("after delete 1st and 3rd beverage");
+        //deleteDB();
+        //dumpDB("after delete 1st and 3rd beverage");
 
     }
 
@@ -72,9 +72,39 @@ public class BeverageCRUDRunner implements CommandLineRunner {
         b4.setDetail("3 shot espresso+60% fresh milk+ice");
         b4.setPrice(210);
         b4.setSugar(0.0f);
+        Beverage b5 = new Beverage();
+        b5.setTitle("Cola");
+        b5.setPrice(30);
+        b5.setDetail("small");
+        Beverage b6 = new Beverage();
+        b6.setTitle("Cola");
+        b6.setPrice(40);
+        b6.setDetail("medium");
+        Beverage b7 = new Beverage();
+        b7.setTitle("Cola");
+        b7.setPrice(50);
+        b7.setDetail("large");
+        Beverage b8 = new Beverage();
+        b8.setTitle("Ice Tea");
+        b8.setPrice(35);
+        b8.setDetail("small");
+        Beverage b9 = new Beverage();
+        b9.setTitle("Ice Tea");
+        b9.setPrice(45);
+        b9.setDetail("medium");
+        Beverage b10 = new Beverage();
+        b10.setTitle("Ice Tea");
+        b10.setPrice(55);
+        b10.setDetail("large");
         repository.save(b1);
         repository.save(b2);
         repository.save(b3);
         repository.save(b4);
+        repository.save(b5);
+        repository.save(b6);
+        repository.save(b7);
+        repository.save(b8);
+        repository.save(b9);
+        repository.save(b10);
     }
 }
