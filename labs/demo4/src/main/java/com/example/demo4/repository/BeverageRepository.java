@@ -10,6 +10,11 @@ import java.util.List;
 
 //@Repository
 public interface BeverageRepository extends CrudRepository<Beverage, Long> {
+
+    List<Beverage> findByTitleAndDetailOrderByPriceAsc(String t, String d);
+
+    Page<Beverage> findByOrderByPriceAsc(Pageable pageable);
+
     Page<Beverage> findAll(Pageable pageable);
 
     List<Beverage> findByOrderByPriceAsc();
@@ -19,9 +24,9 @@ public interface BeverageRepository extends CrudRepository<Beverage, Long> {
     //List<Beverage> findByOrderByDiscountAsc();
     List<Beverage> findMatchByTitle(String t);
 
-    List<Beverage> findMatchByTitleIgnoreCaseOrderByPriceAsc(String title);
-
     List<Beverage> findMatchByTitleOrderByPriceAsc(String title);
+
+    List<Beverage> findMatchByTitleIgnoreCaseOrderByPriceAsc(String title);
 
     Integer countByTitle(String t);
 
