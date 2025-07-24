@@ -24,4 +24,15 @@ public class CustomerRestController {
     Customer postCustomer(@RequestBody Customer c) {
         return service.create(c);
     }
+
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    Customer getCustomer(@PathVariable Long id) {
+        return service.findOne(id);
+    }
+
+    @RequestMapping(value = "{id}", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void deleteCustomer(@PathVariable Long id) {
+        service.delete(id);
+    }
 }
