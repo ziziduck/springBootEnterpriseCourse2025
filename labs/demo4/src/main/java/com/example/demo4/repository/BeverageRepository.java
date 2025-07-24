@@ -11,6 +11,12 @@ import java.util.List;
 //@Repository
 public interface BeverageRepository extends CrudRepository<Beverage, Long> {
 
+    List<Beverage> findByPriceBetweenOrderByPriceAsc(Integer lower, Integer upper);
+
+    List<Beverage> findByTitleContainingIgnoreCase(String t);
+
+    List<Beverage> findByTitleLike(String title);
+
     List<Beverage> findByTitleAndDetailOrderByPriceAsc(String t, String d);
 
     List<Beverage> findByTitleOrDetailOrderByPriceAsc(String t, String d);

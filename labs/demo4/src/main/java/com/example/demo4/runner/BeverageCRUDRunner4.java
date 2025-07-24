@@ -20,6 +20,24 @@ public class BeverageCRUDRunner4 implements CommandLineRunner {
         searchAllSmallAndCola();
         searchsmallCOLA();
         searchSMALL_COLA();
+        searchLatteLike();
+        searchLATTEContaining();
+        searchPriceBetween();
+    }
+
+    private void searchPriceBetween() {
+        repository.findByPriceBetweenOrderByPriceAsc(35, 120)
+                .forEach(b -> log.info("[55-120] beverage:{}", b));
+    }
+
+    private void searchLATTEContaining() {
+        repository.findByTitleContainingIgnoreCase("LATTE")
+                .forEach(b -> log.info("containing LATTE ignore case:{}", b));
+    }
+
+    private void searchLatteLike() {
+        repository.findByTitleLike("%latte%").forEach(b ->
+                log.info("like latte:{}", b));
     }
 
     private void searchSMALL_COLA() {
