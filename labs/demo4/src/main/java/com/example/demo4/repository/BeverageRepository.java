@@ -13,6 +13,12 @@ public interface BeverageRepository extends CrudRepository<Beverage, Long> {
 
     List<Beverage> findByTitleAndDetailOrderByPriceAsc(String t, String d);
 
+    List<Beverage> findByTitleOrDetailOrderByPriceAsc(String t, String d);
+
+    List<Beverage> findByTitleIgnoreCaseAndDetailOrderByPriceAsc(String t, String d);
+
+    List<Beverage> findByTitleAndDetailOrderByPriceAscAllIgnoreCase(String t, String d);
+
     Page<Beverage> findByOrderByPriceAsc(Pageable pageable);
 
     Page<Beverage> findAll(Pageable pageable);
