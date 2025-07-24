@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class BeverageController {
     @Autowired
     private BeverageRepository repository;
+    private static final String LIST_URL = "/beverages/all";
+    private static final String REDIRECT_URL = "redirect:" + LIST_URL;
 
     @GetMapping("/beverages/add")
     public String showAddBeverage(Model model) {
@@ -23,7 +25,7 @@ public class BeverageController {
         return "beverage/add";
     }
 
-    @GetMapping("/beverages/all")
+    @GetMapping(LIST_URL)
     public String getAllBeverage(Model model) {
         model.addAttribute("beverages", repository.findByOrderByPriceAsc());
         return "beverage/list";
@@ -31,31 +33,41 @@ public class BeverageController {
 
     @PostMapping("/beverages/add")
     public String storeAddedBeverage(BeverageForm f) {
-        Beverage b = new Beverage();
-        BeanUtils.copyProperties(f, b);
+        Beverage b = getEntityFromForm(f);
         repository.save(b);
-        return "redirect:/beverages/all";
+        return REDIRECT_URL;
     }
 
     @GetMapping("/beverages/delete")
     public String delAction(@RequestParam Long id) {
         repository.deleteById(id);
-        return "redirect:/beverages/all";
+        return REDIRECT_URL;
     }
 
     @GetMapping("/beverages/modify")
     public String showModify(@RequestParam Long id, Model model) {
         Beverage b = repository.findById(id).get();
-        BeverageForm f = new BeverageForm();
-        BeanUtils.copyProperties(b, f);
+        BeverageForm f = getFormFromEntity(b);
         model.addAttribute("beverageForm", f);
         return "beverage/modify"; // need to do later
     }
+
     @PostMapping("/beverages/modify")
     public String storeModifiedBeverage(BeverageForm f) {
+        Beverage b = getEntityFromForm(f);
+        repository.save(b);
+        return REDIRECT_URL;
+    }
+
+    private BeverageForm getFormFromEntity(Beverage b) {
+        BeverageForm f = new BeverageForm();
+        BeanUtils.copyProperties(b, f);
+        return f;
+    }
+
+    private Beverage getEntityFromForm(BeverageForm f) {
         Beverage b = new Beverage();
         BeanUtils.copyProperties(f, b);
-        repository.save(b);
-        return "redirect:/beverages/all";
+        return b;
     }
 }
