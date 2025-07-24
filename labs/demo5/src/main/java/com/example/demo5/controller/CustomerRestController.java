@@ -35,4 +35,9 @@ public class CustomerRestController {
     void deleteCustomer(@PathVariable Long id) {
         service.delete(id);
     }
+    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
+    Customer putCustomer(@PathVariable Long id,@RequestBody Customer customer) {
+        customer.setId(id);
+        return service.update(customer);
+    }
 }
